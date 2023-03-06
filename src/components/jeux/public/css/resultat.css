@@ -1,0 +1,52 @@
+#resultat  .choixPierre{
+        background-color: white;
+        padding: 55px 55px;
+        border-radius: 100%;
+        border: 20px solid #db314d;
+        box-shadow: 0px 10px 0px 0px #801d2d;
+        margin: 20px;
+    }
+    
+    #resultat .choixCiseaux{
+        background-color: white;
+        padding: 50px 55px;
+        border-radius: 100%;
+        border: 20px solid #eda71d;
+        box-shadow: 0px 10px 0px 0px #926711;
+        margin: 20px;
+    }
+    
+    #resultat .choixPapier{
+        background-color: white;
+        padding: 50px 55px;
+        border-radius: 100%;
+        border: 20px solid #546ff4;
+        box-shadow: 0px 10px 0px 0px #384aa5;
+        margin: 20px;
+    }
+    
+    #resultat .minuteur{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 200px;
+        color: grey;
+        font-size: 50px;
+        font-weight: bolder;
+        background-color: white;
+        border-radius: 100%;
+        margin: 20px;
+    }
+
+    .vibrate {
+        animation: vibrate 0.3s ease-in-out;
+      }
+      
+      @keyframes vibrate {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-4px) rotate(-2deg); }
+        50% { transform: translateX(4px) rotate(2deg); }
+        75% { transform: translateX(-4px) rotate(-2deg); }
+        100% { transform: translateX(0); }
+      }
