@@ -54,40 +54,54 @@ export const Resultat = ({setUserChoix,userChoix,score,setScore}) => {
     //creation de la variable perdante
     const loose = "YOU LOOSE";
     //si le choix de l'user et de l'ordi sont identiques
-    if (userChoix.choice ===  ordiChoix ) {
+    if (userChoix.choix ===  ordiChoix ) {
       //l'etat de winLose renverra TIE
       setWinLose("TIE");
       //apres 3sec de jeu le score est mis à jours
       setTimeout(() => setScore(score), 3000);
 
     //si le choix de l'user est pierre
-    } else if (userChoix.choice === "pierre") {
-      //si le choix de l'ordi
+    } else if (userChoix.choix === "pierre") {
+      //si le choix de l'ordi est ciseaux
       if (ordiChoix === "ciseaux") {
+        //etat est Win
         setWinLose(win);
+        //apres 3sec de jeu le score est mis à jours
         setTimeout(() => setScore(score + 1), 3000);
       } else {
+        //etat est Loose 
         setWinLose(loose);
         setTimeout(() => setScore(score - 1), 3000);
       }
-    } else if (userChoix.choice === "ciseaux") {
+    //si le choix de l'user est ciseaux
+    } else if (userChoix.choix === "ciseaux") {
+      //si le choix de l'ordi est papier
       if (ordiChoix === "papier") {
+        //etat est Win
         setWinLose(win);
+        //apres 3sec de jeu le score est mis à jours
         setTimeout(() => setScore(score + 1), 3000);
       } else {
+        //etat est Loose
         setWinLose(loose);
         setTimeout(() => setScore(score - 1), 3000);
       }
-    } else if (userChoix.choice === "papier") {
+    //si le choix de l'user est papier
+    } else if (userChoix.choix === "papier") {
+      //si le choix de l'ordi est papier
       if (ordiChoix === "pierre") {
+        //etat est Win
         setWinLose(win);
+        //apres 3sec de jeu le score est mis à jours
         setTimeout(() => setScore(score + 1), 3000);
       } else {
+        //etat est Loose
         setWinLose(loose);
+        //apres 3sec de jeu le score est mis à jours
         setTimeout(() => setScore(score - 1), 3000);
       }
     }
-  }, [userChoix.choice, ordiChoix]);
+  }, [userChoix.choix, ordiChoix]);
 
   //fonction playAgain
   const playAgain = () => {
@@ -104,9 +118,10 @@ return (
       <div className='flex justify-center items-center'>
           <div className='flex flex-col'>
               <p className='text-white font-bold text-center my-10'>YOU PICKED</p>
-              {userChoix.choice === "pierre"? <Pierre winLose={winLose}/>: userChoix.choice === "ciseaux" ? <Ciseaux winLose={winLose}/> : userChoix.choice === "papier" ? <Papier winLose={winLose}/> : null}
+              {/* condition qui permet d'afficher le choix de l'user en fct de la prop */}
+              {userChoix.choix === "pierre"? <Pierre winLose={winLose}/>: userChoix.choix === "ciseaux" ? <Ciseaux winLose={winLose}/> : userChoix.choix === "papier" ? <Papier winLose={winLose}/> : null}
           </div>
-
+          {/* si true, affiche le resultat et le btn again */}
           {visible ? 
           <div className='flex flex-col justify-center'> 
               <p className='text-white font-bold text-center mt-10 mx-10 text-4xl'>{winLose}</p> 
@@ -115,12 +130,14 @@ return (
 
           <div className='flex flex-col'>
               <p className='text-white font-bold text-center my-10'>THE HOUSE PICKED</p>
-
+              {/* si le compte à rebour est >0 affichage  */}
               {sec > 0 ? 
                 <div className='minuteur'>
                   <p>{sec}</p>
                 </div> 
+                // sinon
                 :
+                // la condition affiche le choix de l'ordi en fct de la valeur choisi aleatoirement
                 ordiChoix === "pierre"
                 ? 
                 <Pierre/>

@@ -4,7 +4,8 @@ import './public/css/ciseaux.css'
 
 export const Ciseaux = ({setUserChoix,  winLose }) => {
   return (
-    <div onClick={()=>setUserChoix({selected: true, choice:"ciseaux"})} className={`choixCiseaux ${winLose === "YOU WIN" ? "winner" : winLose === "YOU LOOSE" ? "looser" : ""}`}>
+    // le clique declenche la fontion setUserChoix pour etre à jour les propriete
+    <div onClick={()=>setUserChoix({selected: true, choix:"ciseaux"})} className={`choixCiseaux ${winLose === "YOU WIN" ? "winner" : winLose === "YOU LOOSE" ? "looser" : ""}`}>
         <img src={ciseaux} alt="" />
     </div>
   )
